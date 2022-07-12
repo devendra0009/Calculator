@@ -1,0 +1,50 @@
+*,*::before,*::after{
+  box-sizing: border-box;
+}
+body{
+  margin: 0;
+  background: rgb(63,94,251);
+  background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,0.5491946778711485) 100%);
+}
+.calculator-grid > button {
+  cursor: pointer;
+  font-size: 1.75rem;
+  border: 1px solid rgba(214, 54, 201, 0.575);
+  outline: none;
+  background-color: rgba(113, 221, 224, 0.32);
+}
+
+.calculator-grid > button:hover, .calculator-grid > button:focus {
+  background-color: rgba(113, 220, 224, 0.696);
+}
+.calculator-grid{
+  display: grid;
+  margin-top: 2rem;
+  grid-template-columns: repeat(4,6rem);  
+  /* 4 denotes the no. of buttons/elements in a column and 6rem is their width */
+  grid-template-rows: minmax(7rem,auto) repeat(5,6rem);
+  /* minmax is assigning the height to minimum 7rem and then it can expand in its own acc to operands */
+}
+.span-two{
+  grid-column: span 2;
+}
+.output{
+  grid-column: 1/-1;
+  /* grid-column: grid-column-start / grid-column-end; */
+  background-color: rgba(0,0,0,.75);
+  display:  flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-around;
+  padding: .75rem;
+  /* word wrapping allows us to wrap the operand if it is really long  */
+  word-wrap: break-word;
+  word-break: break-all;
+}
+.output .prev-operand{
+  color: rgba(255, 255, 255, 0.75);
+}
+.output .curr-operand{
+  color: white;
+  font-size: 2.5rem;
+}
